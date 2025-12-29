@@ -1,34 +1,52 @@
 ---
-import "../styles/global.css";
-import { ClientRouter } from "astro:transitions";
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
 	title: string;
+    description?: string;
+    image?: string;
 }
 
-const { title } = Astro.props;
+// Valores por defecto si no se especifican
+const { 
+    title, 
+    description = "Pastelería Artesanal hecha con amor. Descubrí nuestro catálogo de tortas, brownies y cosas ricas para compartir.",
+    image = "/images/social-image.jpg" // La imagen que creaste en el paso 1
+} = Astro.props;
+
+// Esto genera la URL absoluta necesaria para WhatsApp (ej: https://tuset.com/images/...)
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(image, Astro.site);
 ---
 
 <!doctype html>
 <html lang="es" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="description"
-			content="Catálogo de Norma's Cakes - Pastelería Artesanal"
-		/>
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+		
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalURL} />
 
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-			rel="stylesheet"
-		/>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={socialImageURL} />
 
-		<title>{title}</title>
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={socialImageURL} />
 
 		<ClientRouter />
 	</head>
