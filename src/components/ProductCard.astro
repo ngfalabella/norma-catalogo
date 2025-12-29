@@ -1,0 +1,46 @@
+---
+interface Props {
+	id: string;
+	nombre: string;
+	precio: string;
+	categoria: string;
+}
+
+const { id, nombre, precio, categoria } = Astro.props;
+const imagePath = `/images/${id}.png`;
+---
+
+<a href={`/producto/${id}`} class="group block bg-norma-card rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-norma-dark/5">
+	
+    <div class="aspect-square w-full bg-norma-muted/10 relative overflow-hidden">
+		<img 
+			src={imagePath} 
+			alt={nombre} 
+            loading="eager"
+			transition:name={`image-${id}`}
+			class="w-full h-full object-cover"
+			onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+		/>
+		
+        <div class="hidden absolute inset-0 flex-col items-center justify-center text-norma-muted bg-[#F5F0EB] p-4 text-center">
+			<span class="font-serif text-4xl mb-2 opacity-30">NC</span>
+			<span class="text-xs uppercase tracking-widest opacity-60">Sin imagen</span>
+		</div>
+		
+		<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-semibold text-norma-dark shadow-sm z-10">
+			{categoria}
+		</div>
+	</div>
+
+	<div class="p-4 md:p-6">
+		<h3 class="font-serif text-lg font-bold text-norma-dark mb-1 line-clamp-1">
+			{nombre}
+		</h3>
+		<p class="text-norma-muted font-medium text-lg">
+			{precio}
+		</p>
+        <div class="mt-3 text-norma-accent opacity-0 group-hover:opacity-100 transition-opacity text-sm">
+			Ver más &rarr;
+		</div>
+	</div>
+</a>

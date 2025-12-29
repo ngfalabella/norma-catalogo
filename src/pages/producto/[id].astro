@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import products from "../../data/productos.json";
+
+// Generar rutas estáticas para cada producto
+export async function getStaticPaths() {
+	return products.map((product) => ({
+		params: { id: product.id },
+		props: { product },
+	}));
+}
+
+const { product } = Astro.props;
+const imagePath = `/images/${product.id}.png`;
+
+// Mensaje de WhatsApp pre-armado
+const whatsappMessage = `Hola Norma's Cakes! Quiero consultar por: ${product.nombre}`;
+const whatsappLink = `https://wa.me/549XXXXXXXXXX?text=${encodeURIComponent(whatsappMessage)}`; // REEMPLAZAR XXXXXXXXXX con el nro real
+---
+
+<Layout title={`${product.nombre} | Norma's Cakes`}>
+	
+	<div class="flex flex-col justify-center h-full w-full">
+		
+		<div class="max-w-4xl w-full mx-auto fade-in">
+			<a href="/" class="inline-flex items-center text-sm text-norma-muted hover:text-norma-dark mb-6 transition-colors group">
+				<span class="mr-2 group-hover:-translate-x-1 transition-transform">&larr;</span> Volver al catálogo
+			</a>
+
+			<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-norma-dark/5 grid md:grid-cols-2">
+				
+                <div class="aspect-square md:aspect-auto bg-[#F5F0EB] relative flex items-center justify-center overflow-hidden">
+					<img 
+						src={imagePath} 
+						alt={product.nombre} 
+						class="w-full h-full object-cover absolute inset-0 md:rounded-l-2xl" 
+						transition:name={`image-${product.id}`}
+						onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+					/>
+                    </div>
+
+				<div class="p-8 md:p-12 flex flex-col justify-center">
+                    <span class="text-norma-accent text-xs font-bold tracking-widest uppercase mb-2">
+						{product.categoria}
+					</span>
+					
+					<h1 class="font-serif text-3xl md:text-4xl font-bold text-norma-dark mb-6 leading-tight">
+						{product.nombre}
+					</h1>
+
+					<div class="text-norma-muted leading-relaxed mb-8 text-lg">
+						{product.descripcion}
+					</div>
+
+                    {product.variantes ? (
+						<div class="bg-norma-base p-4 rounded-lg mb-8 border border-norma-dark/5">
+							<ul class="space-y-2">
+								{product.variantes.map(v => (
+									<li class="flex justify-between text-norma-dark">
+										<span>{v.sabor}</span>
+										<span class="font-bold">{v.precio}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+					) : (
+						<div class="text-3xl font-serif text-norma-dark mb-8">
+							{product.precio || "Consultar precio"}
+						</div>
+					)}
+
+					<a 
+						href={whatsappLink}
+						target="_blank"
+						class="block w-full text-center bg-norma-dark text-white py-4 rounded-lg font-semibold tracking-wide hover:bg-norma-accent transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+					>
+						Pedir por WhatsApp
+					</a>
+					
+					<p class="text-center text-xs text-norma-muted mt-4">
+						Pedidos con 24/48hs de anticipación.
+					</p>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</Layout>
