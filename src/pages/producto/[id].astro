@@ -14,8 +14,8 @@ const { product } = Astro.props;
 const imagePath = `/images/${product.id}.png`;
 
 // Mensaje de WhatsApp pre-armado
-const whatsappMessage = `Hola Norma's Cakes! Quiero consultar por: ${product.nombre}`;
-const whatsappLink = `https://wa.me/549XXXXXXXXXX?text=${encodeURIComponent(whatsappMessage)}`; // REEMPLAZAR XXXXXXXXXX con el nro real
+const whatsappMessage = `Hola Mica! Te queria consultar por: ${product.nombre} que vi en el catalogo`;
+const whatsappLink = `https://wa.me/5492324650692?text=${encodeURIComponent(whatsappMessage)}`; // REEMPLAZAR XXXXXXXXXX con el nro real
 ---
 
 <Layout title={`${product.nombre} | Norma's Cakes`}>
