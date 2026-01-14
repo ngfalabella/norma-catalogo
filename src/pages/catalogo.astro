@@ -4,14 +4,14 @@ import ProductCard from '../components/ProductCard.astro';
 import MobileCategoryNav from '../components/MobileCategoryNav.astro';
 import DesktopCategoryNav from '../components/DesktopCategoryNav.astro';
 //import products from '../data/productos.json';
+export const prerender = false;
+
 const URL_SHEET_JSON = import.meta.env.PUBLIC_SHEET_URL
 
 const res = await fetch(URL_SHEET_JSON, { cache: "no-store" });
 const data = await res.json();
 
-const products = Array.isArray(data)
-  ? data
-  : data.data ?? Object.values(data);
+const products = Array.isArray(data) ? data : data.data ?? Object.values(data);
 
 const categorias = [...new Set(products.map(p => p.categoria))];
 
