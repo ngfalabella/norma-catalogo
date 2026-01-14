@@ -1,21 +1,32 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import products from "../../data/productos.json";
+export const prerender = false;
 
-// Generar rutas estáticas para cada producto
-export async function getStaticPaths() {
-	return products.map((product) => ({
-		params: { id: product.id },
-		props: { product },
-	}));
+import Layout from "../../layouts/Layout.astro";
+
+const URL_SHEET_JSON =
+  "https://opensheet.elk.sh/1KzkuYU5amUXubRmFvkf81cLhrjc_NTEKzFzfS_Lr78k/catalogo";
+
+const { id } = Astro.params;
+
+// Traemos todos los productos (podríamos optimizar, pero así es simple)
+const res = await fetch(URL_SHEET_JSON, { cache: "no-store" });
+const data = await res.json();
+
+const products = Array.isArray(data) ? data : data.data ?? Object.values(data);
+
+// Buscar producto por id
+const product = products.find((p) => p.id === id);
+
+if (!product) {
+  return Astro.redirect("/catalogo");
 }
 
-const { product } = Astro.props;
 const imagePath = `/images/${product.id}.png`;
 
-// Mensaje de WhatsApp pre-armado
-const whatsappMessage = `Hola Mica! Te queria consultar por: ${product.nombre} que vi en el catalogo`;
-const whatsappLink = `https://wa.me/5492324650692?text=${encodeURIComponent(whatsappMessage)}`; // REEMPLAZAR XXXXXXXXXX con el nro real
+const whatsappMessage = `Hola Mica! Te quería consultar por: ${product.nombre} que vi en el catálogo`;
+const whatsappLink = `https://wa.me/5492324650692?text=${encodeURIComponent(
+  whatsappMessage
+)}`;
 ---
 
 <Layout title={`${product.nombre} | Norma's Cakes`}>
