@@ -8,6 +8,13 @@ interface Props {
 
 const { id, nombre, precio, categoria } = Astro.props;
 const imagePath = `/images/${id}.png`;
+
+const precioNumero = Number(precio);
+
+const precioFormateado = isNaN(precioNumero)
+  ? "Consultar"
+  : new Intl.NumberFormat("es-AR").format(precioNumero);
+
 ---
 
 <a 
@@ -54,7 +61,7 @@ const imagePath = `/images/${id}.png`;
             <div class="flex flex-col">
                 <span class="text-xs text-norma-muted font-medium uppercase tracking-wider">Precio</span>
                 <span class="text-lg font-bold text-norma-dark">
-                    {precio || "Consultar"}
+                    { `$ ${precioFormateado}` || "Consultar"}
                 </span>
             </div>
 
