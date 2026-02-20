@@ -162,6 +162,13 @@
     "categoria": "Alfajores"
   },
   {
+    "id": "alfajorcitos-nuez",
+    "nombre": "ALFAJORCITOS DE NUEZ",
+    "descripcion": "Presentación de 6 unidades.",
+    "precio": "$13.000",
+    "categoria": "Minicakes"
+  },
+  {
     "id": "pastafrolas",
     "nombre": "PASTAFROLAS",
     "descripcion": "Opciones disponibles: Membrillo, Batata y Dulce de Leche.",
