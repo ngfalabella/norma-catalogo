@@ -7,20 +7,16 @@
   --color-norma-accent: #D4AF37;
   --color-norma-muted: #8D6E63;
   --color-norma-card: #FFFFFF; */
-  --color-main: #3E0D17;
-  /* Marca, headers, CTA */
-  --color-base: #FCFBF7;
-  /* Fondo principal */
-  --color-card: #FFFFFF;
-  /* Cards de producto */
 
-  --color-accent: #955256;
-  /* Precio, badges, hover */
-  --color-muted: #928B78;
-  /* Texto secundario */
+  
+--color-norma-base:   #FCFBF7; /* fondo principal */
+--color-norma-dark:   #3E0D17; /* main / marca */
+--color-norma-accent: #955256; /* acentos */
+--color-norma-muted:  #928B78; /* texto secundario */
+--color-norma-card:   #FFFFFF; /* cards */
 
-  --color-support: #5D563C;
-  /* Muy puntual (líneas, footer) */
+/* color existente, uso restringido */
+--color-norma-support: #5D563C; /* footer / divisores */
 
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Playfair Display', serif;
