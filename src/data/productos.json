@@ -175,4 +175,11 @@
     "precio": "$14.800",
     "categoria": "Tortas"
   }
+   {
+    "id": "alfajorcitos-nuez",
+    "nombre": "ALFAJORCITOS DE NUEZ",
+    "descripcion": "Presentación de 6 unidades.",
+    "precio": "$13.000",
+    "categoria": "Scones"
+  }
 ]
