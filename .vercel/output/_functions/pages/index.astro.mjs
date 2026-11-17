@@ -1,7 +1,7 @@
 import { a as createComponent, m as maybeRenderHead, b as addAttribute, f as renderScript, d as renderTemplate, c as createAstro, r as renderComponent, h as renderHead } from '../chunks/astro/server_Cm3X-lg3.mjs';
 import 'piccolore';
 import 'clsx';
-import { w as whatsappLink, $ as $$ClientRouter } from '../chunks/catalogo_-1tqFzJQ.mjs';
+import { w as whatsappLink, $ as $$ClientRouter } from '../chunks/catalogo_BbyxwB-f.mjs';
 /* empty css                                    */
 export { renderers } from '../renderers.mjs';
 

@@ -1,8 +1,8 @@
 import { c as createAstro, a as createComponent, m as maybeRenderHead, b as addAttribute, r as renderComponent, d as renderTemplate } from '../chunks/astro/server_Cm3X-lg3.mjs';
 import 'piccolore';
-import { $ as $$FotoProducto, a as $$Icono, b as $$Layout } from '../chunks/FotoProducto_DrkF2cEG.mjs';
+import { $ as $$FotoProducto, a as $$Icono, b as $$Layout } from '../chunks/FotoProducto_FH_DtY0d.mjs';
 import 'clsx';
-import { g as getProductos, a as agruparPorCategoria, b as aItemCliente, d as destacadoDe } from '../chunks/catalogo_-1tqFzJQ.mjs';
+import { g as getProductos, a as agruparPorCategoria, b as aItemCliente, d as destacadoDe } from '../chunks/catalogo_BbyxwB-f.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro$2 = createAstro("https://catalogo-26.vercel.app");

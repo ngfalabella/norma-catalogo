@@ -318,6 +318,24 @@ const __vite_glob_0_16 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePr
 	default: chocotorta
 }, Symbol.toStringTag, { value: 'Module' }));
 
+const granola = new Proxy({"src":"/_astro/granola.zGw_FFaU.png","width":900,"height":1600,"format":"png"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "C:/Users/nicol/OneDrive/Desktop/Aplicaciones/norma-catalogo/src/assets/productos/granola.png";
+							}
+							
+							return target[name];
+						}
+					});
+
+const __vite_glob_0_17 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+	__proto__: null,
+	default: granola
+}, Symbol.toStringTag, { value: 'Module' }));
+
 const keylime = new Proxy({"src":"/_astro/keylime.CsrQM9lI.png","width":720,"height":1280,"format":"png"}, {
 						get(target, name, receiver) {
 							if (name === 'clone') {
@@ -331,7 +349,7 @@ const keylime = new Proxy({"src":"/_astro/keylime.CsrQM9lI.png","width":720,"hei
 						}
 					});
 
-const __vite_glob_0_17 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_18 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: keylime
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -349,7 +367,7 @@ const lemonPie = new Proxy({"src":"/_astro/lemon-pie.Ba4p9ATa.png","width":720,"
 						}
 					});
 
-const __vite_glob_0_18 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_19 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: lemonPie
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -367,7 +385,7 @@ const mcBrownieDdl = new Proxy({"src":"/_astro/mc-brownie-ddl.Dx6X9O5O.png","wid
 						}
 					});
 
-const __vite_glob_0_19 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_20 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: mcBrownieDdl
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -385,7 +403,7 @@ const mcBrownieOreo = new Proxy({"src":"/_astro/mc-brownie-oreo.CTRypOMw.png","w
 						}
 					});
 
-const __vite_glob_0_20 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_21 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: mcBrownieOreo
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -403,7 +421,7 @@ const mcBrownie = new Proxy({"src":"/_astro/mc-brownie.hAdFDmtV.png","width":316
 						}
 					});
 
-const __vite_glob_0_21 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_22 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: mcBrownie
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -421,7 +439,7 @@ const mcCabsha = new Proxy({"src":"/_astro/mc-cabsha.Di26ErUQ.png","width":900,"
 						}
 					});
 
-const __vite_glob_0_22 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_23 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: mcCabsha
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -439,7 +457,7 @@ const mcCoco = new Proxy({"src":"/_astro/mc-coco.h-L2uF1y.png","width":316,"heig
 						}
 					});
 
-const __vite_glob_0_23 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_24 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: mcCoco
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -457,7 +475,7 @@ const mcKeylime = new Proxy({"src":"/_astro/mc-keylime.BSB5bNdB.png","width":120
 						}
 					});
 
-const __vite_glob_0_24 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_25 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: mcKeylime
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -475,7 +493,7 @@ const mcLemonPie = new Proxy({"src":"/_astro/mc-lemon-pie.DJhkSraC.png","width":
 						}
 					});
 
-const __vite_glob_0_25 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_26 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: mcLemonPie
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -493,7 +511,7 @@ const mcMouseChoc = new Proxy({"src":"/_astro/mc-mouse-choc.tcDFr2E0.png","width
 						}
 					});
 
-const __vite_glob_0_26 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_27 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: mcMouseChoc
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -511,7 +529,7 @@ const mcPastrafrola$1 = new Proxy({"src":"/_astro/mc-pastrafrola.DbjWeL75.jpg","
 						}
 					});
 
-const __vite_glob_0_27 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_28 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: mcPastrafrola$1
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -529,7 +547,7 @@ const mcPastrafrola = new Proxy({"src":"/_astro/mc-pastrafrola.Dsh7aT3G.png","wi
 						}
 					});
 
-const __vite_glob_0_28 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_29 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: mcPastrafrola
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -547,7 +565,7 @@ const mousseChocolate = new Proxy({"src":"/_astro/mousse-chocolate.lAAs4uHC.png"
 						}
 					});
 
-const __vite_glob_0_29 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_30 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: mousseChocolate
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -565,7 +583,7 @@ const pastafrolas = new Proxy({"src":"/_astro/pastafrolas.BiI5iqef.png","width":
 						}
 					});
 
-const __vite_glob_0_30 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_31 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: pastafrolas
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -583,7 +601,7 @@ const petitFours = new Proxy({"src":"/_astro/petit-fours.CBIqinrQ.png","width":7
 						}
 					});
 
-const __vite_glob_0_31 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_32 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: petitFours
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -601,7 +619,7 @@ const rogel = new Proxy({"src":"/_astro/rogel.L0e5rh7L.png","width":1200,"height
 						}
 					});
 
-const __vite_glob_0_32 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_33 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: rogel
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -619,7 +637,7 @@ const tartaAvellanas = new Proxy({"src":"/_astro/tarta-avellanas.CRXg_QTY.png","
 						}
 					});
 
-const __vite_glob_0_33 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_34 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: tartaAvellanas
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -637,7 +655,7 @@ const tartaCoco = new Proxy({"src":"/_astro/tarta-coco.Dvkb7dwV.png","width":557
 						}
 					});
 
-const __vite_glob_0_34 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_35 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: tartaCoco
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -655,7 +673,7 @@ const tartaFrutilla = new Proxy({"src":"/_astro/tarta-frutilla.DMnSRuT_.png","wi
 						}
 					});
 
-const __vite_glob_0_35 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_36 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: tartaFrutilla
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -673,7 +691,7 @@ const tiramisu = new Proxy({"src":"/_astro/tiramisu.-CoT5MyO.png","width":316,"h
 						}
 					});
 
-const __vite_glob_0_36 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_37 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: tiramisu
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -691,7 +709,7 @@ const tortaMatilda = new Proxy({"src":"/_astro/torta-matilda.DGz-i5bP.png","widt
 						}
 					});
 
-const __vite_glob_0_37 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_38 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: tortaMatilda
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -709,7 +727,7 @@ const tortaPatagonia = new Proxy({"src":"/_astro/torta-patagonia.qGjR14y-.png","
 						}
 					});
 
-const __vite_glob_0_38 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_39 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: tortaPatagonia
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -727,7 +745,7 @@ const tresSue_os = new Proxy({"src":"/_astro/tres-sueños.DkicXvXm.png","width":
 						}
 					});
 
-const __vite_glob_0_39 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const __vite_glob_0_40 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
 	default: tresSue_os
 }, Symbol.toStringTag, { value: 'Module' }));
@@ -736,7 +754,7 @@ const SHEET_URL = "https://opensheet.elk.sh/1KzkuYU5amUXubRmFvkf81cLhrjc_NTEKzFz
 const WHATSAPP = "5492324650692";
 const INSTAGRAM = "https://www.instagram.com/mokaa.pasteleria/";
 const whatsappLink = (texto) => `https://wa.me/${WHATSAPP}${texto ? `?text=${encodeURIComponent(texto)}` : ""}`;
-const archivos = /* #__PURE__ */ Object.assign({"../assets/productos/alfajor-chocolate.jpg": __vite_glob_0_0,"../assets/productos/alfajor-chocolate.png": __vite_glob_0_1,"../assets/productos/alfajorcitos-maicena.png": __vite_glob_0_2,"../assets/productos/alfajorcitos-nuez.png": __vite_glob_0_3,"../assets/productos/brownie-brc.png": __vite_glob_0_4,"../assets/productos/brownie-clasico.png": __vite_glob_0_5,"../assets/productos/brownie-crema.png": __vite_glob_0_6,"../assets/productos/brownie-frutilla.png": __vite_glob_0_7,"../assets/productos/brownie-frutos-rojos.png": __vite_glob_0_8,"../assets/productos/brownie-merengue.png": __vite_glob_0_9,"../assets/productos/brownie-oreo.png": __vite_glob_0_10,"../assets/productos/brownie-solo.png": __vite_glob_0_11,"../assets/productos/cabsha.png": __vite_glob_0_12,"../assets/productos/cheesecake-frio.png": __vite_glob_0_13,"../assets/productos/cheesecake-pistacho.png": __vite_glob_0_14,"../assets/productos/chocotorta-redonda.png": __vite_glob_0_15,"../assets/productos/chocotorta.png": __vite_glob_0_16,"../assets/productos/keylime.png": __vite_glob_0_17,"../assets/productos/lemon-pie.png": __vite_glob_0_18,"../assets/productos/mc-brownie-ddl.png": __vite_glob_0_19,"../assets/productos/mc-brownie-oreo.png": __vite_glob_0_20,"../assets/productos/mc-brownie.png": __vite_glob_0_21,"../assets/productos/mc-cabsha.png": __vite_glob_0_22,"../assets/productos/mc-coco.png": __vite_glob_0_23,"../assets/productos/mc-keylime.png": __vite_glob_0_24,"../assets/productos/mc-lemon-pie.png": __vite_glob_0_25,"../assets/productos/mc-mouse-choc.png": __vite_glob_0_26,"../assets/productos/mc-pastrafrola.jpg": __vite_glob_0_27,"../assets/productos/mc-pastrafrola.png": __vite_glob_0_28,"../assets/productos/mousse-chocolate.png": __vite_glob_0_29,"../assets/productos/pastafrolas.png": __vite_glob_0_30,"../assets/productos/petit-fours.png": __vite_glob_0_31,"../assets/productos/rogel.png": __vite_glob_0_32,"../assets/productos/tarta-avellanas.png": __vite_glob_0_33,"../assets/productos/tarta-coco.png": __vite_glob_0_34,"../assets/productos/tarta-frutilla.png": __vite_glob_0_35,"../assets/productos/tiramisu.png": __vite_glob_0_36,"../assets/productos/torta-matilda.png": __vite_glob_0_37,"../assets/productos/torta-patagonia.png": __vite_glob_0_38,"../assets/productos/tres-sueños.png": __vite_glob_0_39
+const archivos = /* #__PURE__ */ Object.assign({"../assets/productos/alfajor-chocolate.jpg": __vite_glob_0_0,"../assets/productos/alfajor-chocolate.png": __vite_glob_0_1,"../assets/productos/alfajorcitos-maicena.png": __vite_glob_0_2,"../assets/productos/alfajorcitos-nuez.png": __vite_glob_0_3,"../assets/productos/brownie-brc.png": __vite_glob_0_4,"../assets/productos/brownie-clasico.png": __vite_glob_0_5,"../assets/productos/brownie-crema.png": __vite_glob_0_6,"../assets/productos/brownie-frutilla.png": __vite_glob_0_7,"../assets/productos/brownie-frutos-rojos.png": __vite_glob_0_8,"../assets/productos/brownie-merengue.png": __vite_glob_0_9,"../assets/productos/brownie-oreo.png": __vite_glob_0_10,"../assets/productos/brownie-solo.png": __vite_glob_0_11,"../assets/productos/cabsha.png": __vite_glob_0_12,"../assets/productos/cheesecake-frio.png": __vite_glob_0_13,"../assets/productos/cheesecake-pistacho.png": __vite_glob_0_14,"../assets/productos/chocotorta-redonda.png": __vite_glob_0_15,"../assets/productos/chocotorta.png": __vite_glob_0_16,"../assets/productos/granola.png": __vite_glob_0_17,"../assets/productos/keylime.png": __vite_glob_0_18,"../assets/productos/lemon-pie.png": __vite_glob_0_19,"../assets/productos/mc-brownie-ddl.png": __vite_glob_0_20,"../assets/productos/mc-brownie-oreo.png": __vite_glob_0_21,"../assets/productos/mc-brownie.png": __vite_glob_0_22,"../assets/productos/mc-cabsha.png": __vite_glob_0_23,"../assets/productos/mc-coco.png": __vite_glob_0_24,"../assets/productos/mc-keylime.png": __vite_glob_0_25,"../assets/productos/mc-lemon-pie.png": __vite_glob_0_26,"../assets/productos/mc-mouse-choc.png": __vite_glob_0_27,"../assets/productos/mc-pastrafrola.jpg": __vite_glob_0_28,"../assets/productos/mc-pastrafrola.png": __vite_glob_0_29,"../assets/productos/mousse-chocolate.png": __vite_glob_0_30,"../assets/productos/pastafrolas.png": __vite_glob_0_31,"../assets/productos/petit-fours.png": __vite_glob_0_32,"../assets/productos/rogel.png": __vite_glob_0_33,"../assets/productos/tarta-avellanas.png": __vite_glob_0_34,"../assets/productos/tarta-coco.png": __vite_glob_0_35,"../assets/productos/tarta-frutilla.png": __vite_glob_0_36,"../assets/productos/tiramisu.png": __vite_glob_0_37,"../assets/productos/torta-matilda.png": __vite_glob_0_38,"../assets/productos/torta-patagonia.png": __vite_glob_0_39,"../assets/productos/tres-sueños.png": __vite_glob_0_40
 
 
 });

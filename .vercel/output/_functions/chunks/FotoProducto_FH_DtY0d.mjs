@@ -1,7 +1,7 @@
 import { c as createAstro, a as createComponent, m as maybeRenderHead, b as addAttribute, d as renderTemplate, r as renderComponent, F as Fragment, e as renderTransition, u as unescapeHTML, f as renderScript, g as renderSlot, h as renderHead } from './astro/server_Cm3X-lg3.mjs';
 import 'piccolore';
 /* empty css                            */
-import { I as INSTAGRAM, w as whatsappLink, $ as $$ClientRouter } from './catalogo_-1tqFzJQ.mjs';
+import { I as INSTAGRAM, w as whatsappLink, $ as $$ClientRouter } from './catalogo_BbyxwB-f.mjs';
 /* empty css                            */
 import { $ as $$Image } from './_astro_assets_zPhqQOR3.mjs';
 

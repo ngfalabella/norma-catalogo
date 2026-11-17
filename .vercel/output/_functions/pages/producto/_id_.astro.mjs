@@ -1,8 +1,8 @@
 import { c as createAstro, a as createComponent, r as renderComponent, d as renderTemplate, m as maybeRenderHead, b as addAttribute } from '../../chunks/astro/server_Cm3X-lg3.mjs';
 import 'piccolore';
-import { b as $$Layout, a as $$Icono, $ as $$FotoProducto } from '../../chunks/FotoProducto_DrkF2cEG.mjs';
+import { b as $$Layout, a as $$Icono, $ as $$FotoProducto } from '../../chunks/FotoProducto_FH_DtY0d.mjs';
 import { $ as $$Image } from '../../chunks/_astro_assets_zPhqQOR3.mjs';
-import { g as getProductos, b as aItemCliente, a as agruparPorCategoria, w as whatsappLink } from '../../chunks/catalogo_-1tqFzJQ.mjs';
+import { g as getProductos, b as aItemCliente, a as agruparPorCategoria, w as whatsappLink } from '../../chunks/catalogo_BbyxwB-f.mjs';
 /* empty css                                   */
 export { renderers } from '../../renderers.mjs';
 
