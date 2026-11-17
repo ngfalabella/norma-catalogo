@@ -1,0 +1,87 @@
+---
+import Icono from './Icono.astro';
+
+interface Props {
+  /** En el detalle, en mobile, la foto ocupa la parte de arriba y el header se oculta */
+  ocultarEnMobile?: boolean;
+}
+const { ocultarEnMobile = false } = Astro.props;
+
+/* El tinte bordó sigue al scroll: scripts/interacciones.ts escribe --p (0 → 1) en el <header>
+   con interpolación suave, y las clases .h-* de global.css mezclan los colores según ese valor. */
+---
+
+<header
+  data-header
+  class:list={['sticky top-2.5 z-40 mx-3 mt-2.5 md:mx-6', ocultarEnMobile && 'max-md:hidden']}
+  transition:name="header"
+>
+  <div class="liquid header-barra mx-auto flex h-14 max-w-6xl items-center justify-between rounded-full pl-3 pr-1.5 md:h-16 md:pl-3.5 md:pr-2.5">
+    <span class="header-tinta" aria-hidden="true"></span>
+
+    <a href="/catalogo" class="h-ink flex items-center gap-2.5 rounded-full no-underline">
+      <span aria-hidden="true" class="h-emblema emblema emblema-chico h-9 md:h-10"></span>
+      <span class="font-serif text-[21px] font-medium tracking-[-.01em] md:text-[23px]">Moka</span>
+      <span class="h-soft ml-1.5 hidden text-xs uppercase tracking-[.14em] md:inline">Pastelería artesanal</span>
+    </a>
+
+    <div class="flex items-center gap-0.5 md:gap-1.5">
+      <button
+        type="button"
+        data-tema-toggle
+        aria-label="Cambiar a tema oscuro"
+        class="h-ink h-icono grid size-11 place-items-center rounded-full"
+      >
+        <Icono nombre="luna" class="dark:hidden" />
+        <Icono nombre="sol" class="hidden dark:block" />
+      </button>
+
+      <!-- Mobile: íconos -->
+      <button
+        type="button"
+        data-abrir="buscar"
+        aria-label="Buscar productos"
+        class="h-ink h-icono grid size-11 place-items-center rounded-full md:hidden"
+      >
+        <Icono nombre="buscar" />
+      </button>
+      <button
+        type="button"
+        data-abrir="pedido"
+        data-destino-pedido
+        aria-label="Ver mi pedido"
+        class="liquid-bordo h-sobre-tinta relative grid size-11 place-items-center rounded-full md:hidden"
+      >
+        <Icono nombre="bolsa" size={19} />
+        <span data-contador-pedido hidden class="absolute right-1 top-1 grid h-4 min-w-4 place-items-center rounded-full bg-gold-400 px-1 text-[11px] font-semibold tabular-nums text-cocoa-950"></span>
+      </button>
+
+      <!-- Tablet y desktop: campo de búsqueda + favoritos + "Mi pedido" -->
+      <button
+        type="button"
+        data-abrir="buscar"
+        class="h-campo hidden h-11 w-52 items-center gap-2 rounded-full border px-4 text-sm md:flex"
+      >
+        <Icono nombre="buscar" size={18} />
+        Buscar
+      </button>
+      <button
+        type="button"
+        data-abrir="favoritos"
+        aria-label="Ver favoritos"
+        class="h-ink h-icono hidden size-11 place-items-center rounded-full md:grid"
+      >
+        <Icono nombre="corazon" />
+      </button>
+      <button
+        type="button"
+        data-abrir="pedido"
+        data-destino-pedido
+        class="liquid-bordo h-sobre-tinta hidden h-11 items-center gap-2 rounded-full px-[18px] text-sm font-medium hover:brightness-110 md:flex"
+      >
+        Mi pedido
+        <span data-contador-pedido hidden class="grid h-5 min-w-5 place-items-center rounded-full bg-gold-400 px-1 text-xs font-semibold tabular-nums text-cocoa-950"></span>
+      </button>
+    </div>
+  </div>
+</header>

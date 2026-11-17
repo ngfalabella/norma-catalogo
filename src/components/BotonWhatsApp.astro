@@ -1,0 +1,20 @@
+---
+import Icono from './Icono.astro';
+import { whatsappLink } from '../lib/catalogo';
+---
+
+<!-- Botón flotante de WhatsApp (abajo a la derecha). En mobile queda arriba de la isla / barra inferior. -->
+<a
+  href={whatsappLink('Hola Mica! Te escribo desde el catálogo.')}
+  target="_blank"
+  rel="noopener"
+  aria-label="Escribinos por WhatsApp"
+  class="fab-wp group fixed bottom-[calc(max(18px,env(safe-area-inset-bottom))+72px)] right-4 z-40 flex h-14 items-center overflow-hidden rounded-full pl-4 pr-4 text-white no-underline transition-[scale,filter] duration-300 active:scale-95 hover:brightness-105 md:bottom-6 md:right-6"
+  transition:name="fab-wp"
+>
+  <Icono nombre="whatsapp" size={24} class="shrink-0" />
+  <!-- En pantallas con mouse, el texto se despliega al pasar por encima -->
+  <span class="max-w-0 whitespace-nowrap text-[15px] font-semibold opacity-0 transition-[max-width,opacity,margin] duration-500 ease-[var(--ease-soft)] group-hover:ml-2 group-hover:max-w-32 group-hover:opacity-100 group-focus-visible:ml-2 group-focus-visible:max-w-32 group-focus-visible:opacity-100">
+    Escribinos
+  </span>
+</a>

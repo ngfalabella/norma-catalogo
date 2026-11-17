@@ -1,101 +1,112 @@
 ---
 import '../styles/global.css';
 import { ClientRouter } from 'astro:transitions';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import BottomIsland from '../components/BottomIsland.astro';
+import Hojas from '../components/Hojas.astro';
+import BotonWhatsApp from '../components/BotonWhatsApp.astro';
+import type { Categoria, ItemCliente } from '../lib/catalogo';
 
 interface Props {
-	title: string;
-    description?: string;
-    image?: string;
+  title: string;
+  description?: string;
+  image?: string;
+  /** Productos para la búsqueda */
+  items?: ItemCliente[];
+  categorias?: Pick<Categoria, 'nombre' | 'id'>[];
+  /** Detalle de producto: en mobile la foto reemplaza al header y la isla */
+  detalle?: boolean;
 }
 
-// Valores por defecto si no se especifican
-const { 
-    title, 
-    description = "Pastelería Artesanal hecha con amor. Descubrí nuestro catálogo de tortas, brownies y cosas ricas para compartir.",
-    image = "/images/social-image.jpg" // La imagen que creaste en el paso 1
+const {
+  title,
+  description = 'Pastelería artesanal de Micaela Denapole. Catálogo online de tortas, brownies, cheesecakes, minicakes y más. Pedidos por WhatsApp.',
+  image = '/images/social-image.png',
+  items = [],
+  categorias = [],
+  detalle = false,
 } = Astro.props;
 
-// Esto genera la URL absoluta necesaria para WhatsApp (ej: https://tuset.com/images/...)
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL(image, Astro.site);
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/logooo.svg" />
-		<meta name="generator" content={Astro.generator} />
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-		
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href={canonicalURL} />
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#FBF7F1" />
+    <!-- Tema antes de pintar (evita el parpadeo). También se reaplica tras cada navegación del ClientRouter -->
+    <script is:inline>
+      (function () {
+        function aplicar() {
+          var guardado = null;
+          try { guardado = localStorage.getItem('moka:tema'); } catch (e) {}
+          var oscuro = guardado ? guardado === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.dataset.theme = oscuro ? 'dark' : 'light';
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', oscuro ? '#160A0C' : '#FBF7F1');
+        }
+        aplicar();
+        if (!window.__mokaTema) {
+          window.__mokaTema = true;
+          document.addEventListener('astro:after-swap', aplicar);
+        }
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/logooo.svg" />
+    <meta name="generator" content={Astro.generator} />
 
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonicalURL} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={socialImageURL} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={canonicalURL} />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={socialImageURL} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
 
-		<ClientRouter />
-	</head>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageURL} />
 
-	<body
-		class="bg-norma-base text-norma-dark font-sans antialiased min-h-screen flex flex-col md:pb-0"
-	>
-		<header
-			class="sticky top-0 z-50 bg-white shadow-sm transition-all duration-300"
-		>
-			<div class="pt-6 pb-4 px-4 text-center">
-				<a href="/" class="inline-flex flex-col items-center group">
-					<img
-						src="/images/logo.png"
-						alt="Logo Norma's Cakes"
-						class="h-16 w-16 md:h-20 md:w-20 object-contain rounded-full border border-norma-muted/20 p-1 mb-3 hover:scale-105 transition-transform duration-300"
-					/>
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={socialImageURL} />
 
-					<h1
-						class="font-serif text-2xl md:text-3xl text-norma-dark mb-1 leading-tight"
-					>
-						Moka
-					</h1>
+    <ClientRouter fallback="animate" />
+  </head>
 
-					<p
-						class="text-[10px] md:text-xs tracking-[0.3em] uppercase text-norma-muted font-medium"
-					>
-						Pastelería Artesanal
-					</p>
-				</a>
-			</div>
+  <body class="flex min-h-dvh flex-col bg-paper font-sans text-ink antialiased">
+    <div class="fondo-papel" aria-hidden="true">
+      <div class="aurora -right-40 -top-32 size-[520px] opacity-90 [--aurora:var(--color-rose-200)] md:size-[720px]"></div>
+      <div class="aurora -left-44 top-24 size-[420px] opacity-60 [--aurora:var(--color-sand-200)]"></div>
+    </div>
 
-			
-		</header>
-		
+    <SiteHeader ocultarEnMobile={detalle} />
 
-		<main class="grow w-full max-w-6xl mx-auto px-4 py-10">
-			<slot />
-		</main>
+    <main class="w-full grow">
+      <slot />
+    </main>
 
-		<footer
-			class="bg-norma-dark text-norma-base py-3 text-center mt-auto border-t border-white/10"
-		>
-			<div
-				class="flex flex-col md:flex-row justify-center items-center gap-1 text-[10px] opacity-60 uppercase tracking-wider"
-			>
-				<span>&copy; 2026 Moka </span>
-				<span class="hidden md:inline mx-2">•</span>
-			</div>
-		</footer>
-	</body>
+    <SiteFooter />
+    {!detalle && <BottomIsland />}
+    <BotonWhatsApp />
+    <Hojas items={items} categorias={categorias} />
+
+    <script>
+      import '../scripts/tienda';
+      import '../scripts/interacciones';
+      import '../scripts/transiciones';
+      import '../scripts/tema';
+    </script>
+  </body>
 </html>

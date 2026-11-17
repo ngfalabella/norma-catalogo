@@ -1,0 +1,28 @@
+---
+import Icono from './Icono.astro';
+---
+
+<!-- Isla de vidrio flotante (solo mobile): Buscar · Mi pedido · Favoritos. WhatsApp directo: BotonWhatsApp -->
+<nav
+  aria-label="Acciones"
+  class="liquid fixed bottom-[max(18px,env(safe-area-inset-bottom))] left-1/2 z-40 flex -translate-x-1/2 items-center gap-1.5 rounded-full p-1.5 md:hidden"
+  transition:name="isla"
+>
+  <button type="button" data-abrir="buscar" aria-label="Buscar productos" class="grid size-12 place-items-center rounded-full text-ink active:bg-field">
+    <Icono nombre="buscar" />
+  </button>
+  <button
+    type="button"
+    data-abrir="pedido"
+    data-destino-pedido
+    class="liquid-bordo flex h-12 items-center gap-2 whitespace-nowrap rounded-full px-[22px] text-[15px] font-medium active:scale-[.97] transition-transform"
+  >
+    <Icono nombre="bolsa" size={18} />
+    <span data-isla-texto>Mi pedido</span>
+    <span data-contador-pedido hidden class="tabular-nums opacity-75"></span>
+  </button>
+  <button type="button" data-abrir="favoritos" aria-label="Ver favoritos" class="relative grid size-12 place-items-center rounded-full text-ink active:bg-field">
+    <Icono nombre="corazon" />
+    <span data-contador-favoritos hidden class="absolute right-2 top-2 size-2 rounded-full bg-bordo-700"></span>
+  </button>
+</nav>

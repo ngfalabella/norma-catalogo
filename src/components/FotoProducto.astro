@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import type { Producto } from '../lib/catalogo';
+
+interface Props {
+  producto: Producto;
+  widths: number[];
+  sizes: string;
+  eager?: boolean;
+  class?: string;
+  /** Tamaño del monograma del placeholder */
+  monograma?: 'chico' | 'grande';
+  /** En el detalle la foto lleva el nombre fijo; en las cards se asigna al tocar */
+  fija?: boolean;
+}
+const { producto, widths, sizes, eager = false, class: clase, monograma = 'chico', fija = false } = Astro.props;
+const nombre = fija ? 'view-transition-name: vt-foto' : undefined;
+---
+
+{producto.foto ? (
+  <Image
+    src={producto.foto}
+    alt={producto.nombre}
+    widths={widths}
+    sizes={sizes}
+    loading={eager ? 'eager' : 'lazy'}
+    fetchpriority={eager ? 'high' : 'auto'}
+    decoding="async"
+    class:list={['foto size-full object-cover', clase]}
+    onload="this.dataset.cargada=''"
+    data-vt="foto"
+    style={nombre}
+  />
+) : (
+  <div
+    class:list={['absolute inset-0 flex flex-col items-center justify-center gap-2 bg-tint', clase]}
+    data-vt="foto"
+    style={nombre}
+  >
+    <span
+      aria-hidden="true"
+      class:list={['emblema emblema-chico text-accent/70', monograma === 'grande' ? 'h-28' : 'h-16']}
+    ></span>
+    <span class="text-xs text-ink-soft">Foto en camino</span>
+  </div>
+)}

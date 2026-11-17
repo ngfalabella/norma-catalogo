@@ -1,0 +1,114 @@
+---
+import Icono from './Icono.astro';
+import type { Categoria, ItemCliente } from '../lib/catalogo';
+
+interface Props {
+  items: ItemCliente[];
+  categorias: Pick<Categoria, 'nombre' | 'id'>[];
+}
+const { items, categorias } = Astro.props;
+---
+
+<!-- Datos para la búsqueda (se leen en el navegador) -->
+<script type="application/json" id="catalogo-items" set:html={JSON.stringify(items)} />
+
+<dialog
+  id="hoja"
+  aria-labelledby="hoja-titulo"
+  class="hoja m-0 mt-auto w-full max-w-none bg-transparent p-0 text-ink backdrop:bg-cocoa-950/30 backdrop:backdrop-blur-[2px] md:m-auto md:max-w-xl"
+>
+  <div class="flex max-h-[85dvh] flex-col rounded-t-[var(--radius-sheet)] bg-paper shadow-[0_-12px_30px_-16px_rgb(42_9_16/.35)] md:max-h-[80dvh] md:rounded-[var(--radius-sheet)]">
+    <div class="px-5 pt-3">
+      <div aria-hidden="true" class="mx-auto mb-3 h-1 w-10 rounded-full bg-ink/15 md:hidden"></div>
+      <div class="flex items-center justify-between gap-3">
+        <h2 id="hoja-titulo" class="font-serif text-[26px] font-normal tracking-[-.02em]">Buscar</h2>
+        <button type="button" data-cerrar-hoja aria-label="Cerrar" class="grid size-11 place-items-center rounded-full hover:bg-tint">
+          <Icono nombre="cerrar" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Buscar -->
+    <section data-panel="buscar" class="flex min-h-0 flex-col">
+      <div class="px-5 pt-2">
+        <label class="flex h-12 items-center gap-2.5 rounded-full border border-line bg-field px-4 text-ink-soft focus-within:border-accent/50">
+          <Icono nombre="buscar" size={18} />
+          <span class="sr-only">Buscar productos</span>
+          <input
+            type="search"
+            data-busqueda
+            placeholder="Brownie, pistacho, chocotorta…"
+            autocomplete="off"
+            class="h-full w-full bg-transparent text-base text-ink outline-none placeholder:text-ink-soft/70"
+          />
+        </label>
+        <div class="sin-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5 pb-1" role="group" aria-label="Filtrar por categoría">
+          <button type="button" data-filtro="" aria-pressed="true" class="filtro">Todas</button>
+          {categorias.map((c) => (
+            <button type="button" data-filtro={c.nombre} aria-pressed="false" class="filtro">{c.nombre}</button>
+          ))}
+        </div>
+      </div>
+      <p data-resultados-estado aria-live="polite" class="px-5 pt-3 text-sm text-ink-soft"></p>
+      <ul data-resultados class="min-h-0 flex-1 overflow-y-auto px-3 pb-6 pt-1"></ul>
+    </section>
+
+    <!-- Pedido -->
+    <section data-panel="pedido" hidden class="flex min-h-0 flex-col">
+      <ul data-lista-pedido class="min-h-0 flex-1 overflow-y-auto px-3 pt-1"></ul>
+      <div data-pedido-vacio hidden class="px-5 pb-8 pt-4 text-[15px] leading-relaxed text-ink-soft">
+        Tu pedido está vacío. Tocá <span class="font-semibold text-accent">+</span> en cualquier producto para sumarlo.
+      </div>
+      <div data-pedido-pie class="border-t border-line px-5 pb-[max(20px,env(safe-area-inset-bottom))] pt-4">
+        <div class="mb-1 flex items-baseline justify-between">
+          <span class="text-sm text-ink-soft">Total estimado</span>
+          <span data-total class="font-serif text-2xl tabular-nums"></span>
+        </div>
+        <p data-nota-consultar hidden class="mb-1 text-xs text-ink-soft">Algunos productos tienen precio a consultar y no suman al total.</p>
+        <a
+          data-enviar-pedido
+          href="#"
+          target="_blank"
+          rel="noopener"
+          class="liquid-bordo mt-3 flex h-12 items-center justify-center gap-2 rounded-full text-[15px] font-medium no-underline transition-[filter] hover:brightness-110"
+        >
+          <Icono nombre="whatsapp" size={18} />
+          Enviar pedido por WhatsApp
+        </a>
+        <button type="button" data-vaciar-pedido class="mx-auto mt-2 block h-11 px-4 text-sm text-ink-soft underline-offset-4 hover:underline">Vaciar pedido</button>
+      </div>
+    </section>
+
+    <!-- Favoritos -->
+    <section data-panel="favoritos" hidden class="flex min-h-0 flex-col">
+      <ul data-lista-favoritos class="min-h-0 flex-1 overflow-y-auto px-3 pb-6 pt-1"></ul>
+      <div data-favoritos-vacio hidden class="px-5 pb-8 pt-4 text-[15px] leading-relaxed text-ink-soft">
+        Todavía no guardaste favoritos. Tocá el corazón en la página de un producto para tenerlo a mano acá.
+      </div>
+    </section>
+  </div>
+</dialog>
+
+<!-- Aviso breve al sumar un producto -->
+<div
+  data-aviso
+  role="status"
+  aria-live="polite"
+  class="pointer-events-none fixed inset-x-0 top-20 z-50 mx-auto w-fit translate-y-[-8px] rounded-full bg-cocoa-950 px-4 py-2.5 text-sm text-cream-50 opacity-0 shadow-float transition-[opacity,translate] duration-300"
+></div>
+
+<style is:global>
+  .hoja { max-height: none; }
+  .hoja[open] { animation: hoja-sube .42s var(--ease-soft); }
+  @keyframes hoja-sube { from { translate: 0 40px; opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .hoja[open] { animation: none; } }
+
+  .filtro {
+    flex-shrink: 0; height: 36px; padding: 0 14px; border-radius: 999px; font-size: 14px; font-weight: 500;
+    border: 1px solid var(--color-line); background: var(--color-field); color: var(--color-ink);
+    transition: background-color .3s, color .3s, border-color .3s;
+  }
+  .filtro[aria-pressed='true'] { background: var(--color-bordo-700); border-color: var(--color-bordo-700); color: var(--color-cream-50); }
+
+  [data-aviso][data-visible] { opacity: 1; translate: 0 0; }
+</style>

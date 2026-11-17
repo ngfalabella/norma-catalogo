@@ -1,0 +1,29 @@
+---
+import type { Categoria } from '../lib/catalogo';
+
+interface Props {
+  categorias: Categoria[];
+}
+const { categorias } = Astro.props;
+---
+
+<nav aria-label="Categorías" class="sticky top-[76px] z-30 -mx-4 mt-4 py-2 md:top-[88px] md:-mx-6" data-chips>
+  <div class="sin-scrollbar relative flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-px-4 px-4 md:scroll-px-6 md:px-6" data-chips-fila>
+    <!-- Píldora activa: se desliza (y se estira en el camino) de un chip al otro -->
+    <span
+      aria-hidden="true"
+      data-pildora
+      class="liquid-bordo pointer-events-none absolute left-0 top-0 h-10 rounded-full opacity-0"
+    ></span>
+    {categorias.map((c, i) => (
+      <a
+        href={`#${c.id}`}
+        data-chip={c.id}
+        aria-current={i === 0 ? 'true' : undefined}
+        class="glass-soft relative flex h-10 shrink-0 snap-start items-center whitespace-nowrap rounded-full border-line px-4 text-sm font-medium text-ink no-underline transition-colors duration-300 aria-[current=true]:border-transparent aria-[current=true]:bg-transparent aria-[current=true]:text-cream-50 aria-[current=true]:shadow-none"
+      >
+        <span class="relative">{c.nombre}</span>
+      </a>
+    ))}
+  </div>
+</nav>

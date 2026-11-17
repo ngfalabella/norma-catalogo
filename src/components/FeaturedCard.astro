@@ -1,0 +1,51 @@
+---
+import FotoProducto from './FotoProducto.astro';
+import Icono from './Icono.astro';
+import type { ItemCliente, Producto } from '../lib/catalogo';
+
+interface Props {
+  producto: Producto;
+  item: ItemCliente;
+  eager?: boolean;
+}
+const { producto, item, eager = false } = Astro.props;
+---
+
+<article class="aparece relative col-span-2" data-producto={producto.id}>
+  <a
+    href={`/producto/${producto.slug}`}
+    class="tilt presionable relative block h-[330px] overflow-hidden rounded-[var(--radius-feature)] bg-tint text-ink no-underline shadow-feature md:h-[370px]"
+  >
+    <FotoProducto
+      producto={producto}
+      eager={eager}
+      widths={[480, 640, 828, 1080]}
+      sizes="(min-width: 1024px) 560px, (min-width: 768px) 66vw, 100vw"
+      class="absolute inset-0"
+    />
+
+    {producto.etiqueta && (
+      <span class="glass-soft absolute left-3.5 top-3.5 rounded-full px-3 py-[7px] text-xs font-medium">{producto.etiqueta}</span>
+    )}
+
+    <div class="liquid absolute inset-x-2.5 bottom-2.5 flex items-center justify-between rounded-[20px] py-3.5 pl-4 pr-[68px] md:right-auto md:w-[320px]">
+      <div class="min-w-0">
+        <h3 class="truncate font-serif text-[22px] font-medium tracking-[-.01em] md:text-2xl" data-vt="titulo">
+          {producto.nombre}
+        </h3>
+        <p class="mt-0.5 text-[15px] font-semibold tabular-nums md:text-base" data-vt="precio">
+          {producto.precioTexto}
+        </p>
+      </div>
+    </div>
+  </a>
+
+  <button
+    type="button"
+    data-agregar={JSON.stringify(item)}
+    aria-label={`Sumar ${producto.nombre} al pedido`}
+    class="liquid-bordo absolute bottom-[22px] right-[22px] grid size-11 place-items-center rounded-full transition-[scale,filter] duration-200 hover:brightness-110 active:scale-90 md:left-[278px] md:right-auto"
+  >
+    <Icono nombre="mas" size={18} />
+  </button>
+</article>
