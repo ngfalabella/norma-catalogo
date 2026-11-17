@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 
 .env
+# build local de Vercel (lo genera Vercel en cada deploy)
+.vercel/
